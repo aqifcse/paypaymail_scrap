@@ -32,12 +32,9 @@ class PaypaySpider(scrapy.Spider):
             )
 
     def parse(self, response):
-
-        print ('Result:')
-        print(".breadcrumbs-link = %s" % (response.css('body').extract())) # OUTPUT: [...HTML ELEMENTS...]
         
-        # top_rankings = response.xpath('//body').extract() #/div/main/div[@class = "Partition top_ranking Partition-separate"]/div[@class = "RankingCarousel"]/amp-list/div[@class="i-amphtml-fill-content i-amphtml-replaced-content"]/amp-carousel/div').extract()
-        # print(top_rankings)
+        top_rankings = response.xpath('//body/div/main/div[@class = "Partition top_ranking Partition-separate"]/div[@class = "RankingCarousel"]/amp-list/div[@class="i-amphtml-fill-content i-amphtml-replaced-content"]/amp-carousel/div').extract()
+        print(top_rankings)
         # for item in items:
         #     brand = item.xpath('.//div[@class="TinyShelfItem_info"]/p[@class="TinyShelfItem_brand"]/text()').extract_first()
         #     name = item.xpath('.//div[@class="TinyShelfItem_info"]/p[@class="TinyShelfItem_name"]/text()').extract_first()
